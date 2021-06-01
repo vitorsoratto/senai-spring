@@ -1,8 +1,8 @@
-# Projeto usando Spring MVC com JPA e banco de dados MySQL
+## Projeto usando Spring MVC com JPA e banco de dados MySQL
 
 ---
-## Versão 0.1
-### Inicio do sistema com a versão stable
+### Versão 0.1
+#### Inicio do sistema com a versão stable
 
 ---
 - proxy: 
