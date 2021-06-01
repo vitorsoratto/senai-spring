@@ -5,4 +5,7 @@
 ### Inicio do sistema com a versão stable
 
 ---
-- proxy: git config --global http.proxy http://10.1.49.254:3128
+- proxy: 
+```git
+git config --global http.proxy http://10.1.49.254:3128
+```
