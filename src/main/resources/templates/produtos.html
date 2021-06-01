@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.we.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/Layout">
+
+<head>
+    <title>Sim</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/9470490305.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navar navbar-dark bg-dark">
+        <a href="#" class="navbar-brand">
+            <img src="https://soratto.xyz/src/images/logo.png" alt="Logo" width="5%" height="100%">
+        </a>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9">
+                <h3>Pesquisa</h3>
+            </div>
+            <div class="col-md-3 mt-2">
+                <a href="/produto/novo" class="btn btn-outline-dark pull-right h2">Novo Produto</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="table-responsive col-md-12">
+                <table class="table table-striped" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descrição</th>
+                            <th>Marca</th>
+                            <th>Preço</th>
+                            <th class="actions">Editar</th>
+                            <th class="actions">Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="produto : ${produtos}">
+                            <td th:text="${produto.id}"></td>
+                            <td th:text="${produto.descricao}"></td>
+                            <td th:text="${produto.marca}"></td>
+                            <td th:text="${produto.preco}"></td>
+                            <td><a th:href="@{/produto/{id}(id=${produto.id})}" class="btn btn-success btn-sm">
+                                <i class="far fa-edit"></i>
+                            </a></td>
+                            <td><a th:href="@{/produto/excluir/{id}(id=${produto.id})}" class="btn btn-danger btn-sm">
+                                <i class="far fa-trash-alt"></i>
+                            </a></td>
+                        </tr>
+                    </tbody>
+                    <tr>
+                        <td th:if="${#lists.isEmpty(produtos)}">Sem nada irmão 👍</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

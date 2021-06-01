@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.we.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastro de Produtos</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+</head>
+
+<body>
+	<nav class="navar navbar-dark bg-dark">
+		<a href="#" class="navbar-brand">
+			<img src="https://soratto.xyz/src/images/logo.png" alt="Logo" width="5%" height="100%">
+		</a>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-lg-12 mt-2">
+				<a href="/produto/consulta" class="btn btn-outline-dark pull-right h2">Consultar Produtos</a>
+			</div>
+		</div>
+		<div class="col-md-12 col-lg-12 mt-2">
+			<form action="/produto" method="post" class="form-horizontal card p-2" th:object="${produto}">
+				<input type="hidden" name="id" th:field="*{id}">
+				<div class="row g-3">
+					<div class="col-sm-6">
+						<label for="descricao" class="form-label">Descrição</label>
+						<input type="text" class="form-control" id="descricao" name="descricao" th:field="*{descricao}"
+							required />
+						<div class="invalid-feedback">
+							Digite a descrição
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<label for="marca" class="form-label">Marca</label>
+						<input type="text" class="form-control" id="marca" name="marca" th:field="*{marca}" required />
+						<div class="invalid-feedback">
+							Digite a marca
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<label for="preco" class="form-label">Preço</label>
+						<input type="numeric" class="form-control" id="preco" name="preco" value="0.00"
+							th:field="*{preco}" />
+					</div>
+					<div class="col-sm-12">
+						<input type="submit" value="Salvar" class="btn btn-outline-dark" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>
